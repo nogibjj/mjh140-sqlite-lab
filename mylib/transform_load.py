@@ -18,8 +18,9 @@ def load(dataset="/mjh140-sqlite-lab/kenpom.csv",
     conn = sqlite3.connect(database)
     c = conn.cursor()
     c.execute(f"DROP TABLE IF EXISTS {target_table}")
+    #create table
     c.execute(f"CREATE TABLE {target_table} ({column_names})")
-    #insert
+    #insert data from csv file
     placeholders = ", ".join(["?"] * num_columns)
     c.executemany(f"INSERT INTO {target_table} VALUES ({placeholders})", payload)
     conn.commit()

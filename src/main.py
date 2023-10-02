@@ -1,6 +1,12 @@
 """
 ETL-Query script
 """
+import sys
+import os
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.abspath(os.path.join(current_dir, ".."))
+sys.path.insert(0, parent_dir)
 
 from mylib.extract import extract
 from mylib.transform_load import load
@@ -21,3 +27,5 @@ load(dataset="kenpom.csv",
 print("Querying data...")
 query(dbname = "kenpom.db",
       table = 'kenpom_data')
+
+
