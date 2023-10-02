@@ -17,7 +17,6 @@ def load(dataset="/mjh140-sqlite-lab/kenpom.csv",
     column_names, num_columns = extract_column_names(payload)
     conn = sqlite3.connect(database)
     c = conn.cursor()
-    c.execute(f"DROP TABLE IF EXISTS GroceryDB")
     c.execute(f"DROP TABLE IF EXISTS {target_table}")
     c.execute(f"CREATE TABLE {target_table} ({column_names})")
     #insert
