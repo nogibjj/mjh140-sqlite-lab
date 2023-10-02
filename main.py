@@ -8,12 +8,14 @@ from mylib.query import query
 
 # Extract
 print("Extracting data...")
-extract()
+extract(url="https://raw.githubusercontent.com/jfinocchiaro/marchmadness/master/kenpom.csv", 
+        file_path = "kenpom.csv")
 
 # Transform and load
 print("Transforming data...")
-load()
+load(dataset="kenpom.csv",
+     database="kenpom.db")
 
 # Query
 print("Querying data...")
-query()
+query(dbname = "kenpom.db")
