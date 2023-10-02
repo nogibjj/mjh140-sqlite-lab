@@ -1,5 +1,7 @@
 ## SQLite Lab
 
+[![CI](https://github.com/nogibjj/mjh140-sqlite-lab/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/mjh140-sqlite-lab/actions/workflows/cicd.yml)
+
 ### Lab:
 
 * Use an AI Assistant, but use a different one then you used from a previous lab (Anthropic's Claud, Bard, Copilot, CodeWhisperer, Colab AI, etc)
