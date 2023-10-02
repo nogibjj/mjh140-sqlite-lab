@@ -24,7 +24,7 @@ class TestLib(unittest.TestCase):
     
     def test_query(self):
         try:
-            query(dbname = "kenpo.db",
+            query(dbname = "kenpom.db",
                   table = 'kenpom_data')
         except TypeError:
             self.fail("Query Failure")
