@@ -1,7 +1,7 @@
 import sqlite3
 
-def update(dbname, table, col, new_value, cond_col, cond_val):
+def update(dbname, tab, col, n_val, cond_col, cond_val):
     conn = sqlite3.connect(dbname)
     c = conn.cursor()
-    c.execute(f"UPDATE {table} SET {col} = ? WHERE {cond_col} = ?", (new_value, cond_val))
+    c.execute(f"UPDATE {tab} SET {col} = ? WHERE {cond_col} = ?", (n_val, cond_val))
     conn.commit()
