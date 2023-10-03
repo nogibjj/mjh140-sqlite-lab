@@ -25,7 +25,7 @@ class TestLib(unittest.TestCase):
     def test_query(self):
         try:
             query(dbname = "kenpom.db",
-                  table = 'kenpom_data')
+                  tab = 'kenpom_data')
         except TypeError:
             self.fail("Query Failure")
     
@@ -33,7 +33,7 @@ class TestLib(unittest.TestCase):
         try:
             load(dataset="kenpom.csv",
                  database="kenpom.db",
-                 target_table = "kenpom_data")
+                 tab = "kenpom_data")
         except TypeError:
             self.fail("Load Failure")
 
