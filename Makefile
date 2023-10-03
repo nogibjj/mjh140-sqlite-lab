@@ -6,7 +6,7 @@ test:
 	python -m pytest -vv --cov=main --cov=mylib tests/
 
 format:	
-	black *.py 
+	black mylib/*.py tests/*.py src/*.py
 
 lint:
 	#disable comment to test speed
