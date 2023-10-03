@@ -24,12 +24,12 @@ extract(url="https://raw.githubusercontent.com/jfinocchiaro/marchmadness/master/
 print("Transforming data...")
 load(dataset="kenpom.csv",
      database="kenpom.db",
-     target_table = "kenpom_data")
+     tab = "kenpom_data")
 
 # Query
 print("Querying data...")
 query(dbname = "kenpom.db",
-      table = 'kenpom_data')
+      tab = 'kenpom_data')
 
 # Insert
 new_data = {
@@ -41,19 +41,19 @@ new_data = {
     'Losses': '4'
     }
 insert(dbname = "kenpom.db",
-      table = 'kenpom_data',
+      tab = 'kenpom_data',
       new_data = new_data)
 
 #Update
 update(dbname = 'kenpom.db',
-       table = 'kenpom_data',
-       column_name = 'Conference',
-       new_value = 'BE',
-       conditional_column = 'Year',
-       conditional_value = '2018')
+       tab = 'kenpom_data',
+       col = 'Conference',
+       n_val = 'BE',
+       cond_col = 'Year',
+       cond_val = '2018')
 
 #Delete
 delete(dbname = 'kenpom.db',
-       table = 'kenpom_data',
-       conditional_column = 'Year',
-       conditional_value = '2018')
+       tab = 'kenpom_data',
+       cond_col = 'Year',
+       cond_val = '2018')

@@ -8,7 +8,7 @@ import os
 #load the csv file and insert into a new sqlite3 database
 def load(dataset="/mjh140-sqlite-lab/kenpom.csv",
          database = "kenpom.db",
-         target_table = "kenpom_data"):
+         tab = "kenpom_data"):
     """"Transforms and Loads data into the local SQLite3 database"""
 
     #prints the full working directory and path
@@ -17,12 +17,12 @@ def load(dataset="/mjh140-sqlite-lab/kenpom.csv",
     column_names, num_columns = extract_column_names(payload)
     conn = sqlite3.connect(database)
     c = conn.cursor()
-    c.execute(f"DROP TABLE IF EXISTS {target_table}")
+    c.execute(f"DROP TABLE IF EXISTS {tab}")
     #create table
-    c.execute(f"CREATE TABLE {target_table} ({column_names})")
+    c.execute(f"CREATE TABLE {tab} ({column_names})")
     #insert data from csv file
     placeholders = ", ".join(["?"] * num_columns)
-    c.executemany(f"INSERT INTO {target_table} VALUES ({placeholders})", payload)
+    c.executemany(f"INSERT INTO {tab} VALUES ({placeholders})", payload)
     conn.commit()
     conn.close()
     return database
