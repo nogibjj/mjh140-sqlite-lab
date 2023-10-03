@@ -11,6 +11,9 @@ sys.path.insert(0, parent_dir)
 from mylib.extract import extract
 from mylib.transform_load import load
 from mylib.query import query
+from mylib.insert import insert
+from mylib.update import update
+from mylib.delete import delete
 
 # Extract
 print("Extracting data...")
@@ -28,4 +31,29 @@ print("Querying data...")
 query(dbname = "kenpom.db",
       table = 'kenpom_data')
 
+# Insert
+new_data = {
+    'Year':'2018', 
+    'Rank': '1',
+    'Team': 'Villinova',
+    'Conf': 'BE',
+    'Wins': '36',
+    'Losses': '4'
+    }
+insert(dbname = "kenpom.db",
+      table = 'kenpom_data',
+      new_data = new_data)
 
+#Update
+update(dbname = 'kenpom.db',
+       table = 'kenpom_data',
+       column_name = 'Conference',
+       new_value = 'BE',
+       conditional_column = 'Year',
+       conditional_value = '2018')
+
+#Delete
+delete(dbname = 'kenpom.db',
+       table = 'kenpom_data',
+       conditional_column = 'Year',
+       conditional_value = '2018')
