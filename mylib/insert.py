@@ -1,6 +1,9 @@
+'''Insert data'''
 import sqlite3
+from mylib.query import query
 
 def insert(dbname: str, tab: str, new_data: dict):
+    '''Insert new row of data into database'''
     conn = sqlite3.connect(dbname)
     c = conn.cursor()
     c.execute(f"PRAGMA table_info({tab})")
@@ -10,6 +13,9 @@ def insert(dbname: str, tab: str, new_data: dict):
     placeholders = ", ".join(["?"] * num_columns)
     c.execute(f"INSERT INTO {tab} VALUES ({placeholders})", payload)
     conn.commit()
+    query(dbname = "kenpom.db",
+          tab = 'kenpom_data',
+          cond = "Year = '2018'")
 
 def format_data(data: dict, columns_info: list):
     # Cycle through the db columns, determine if there's any new data. 
@@ -18,6 +24,5 @@ def format_data(data: dict, columns_info: list):
     for item in columns_info:
         _, col_name, _, _, _, _ = item
         payload += (data.get(str(col_name)),)
-    print(payload)
     
     return payload

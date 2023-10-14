@@ -30,8 +30,12 @@ load(dataset="kenpom.csv",
 print("Querying data...")
 query(dbname = "kenpom.db",
       tab = 'kenpom_data')
+query(dbname = "kenpom.db",
+          tab = 'kenpom_data',
+          cond = "Year = '2018'")
 
 # Insert
+print("Inserting data...")
 new_data = {
     'Year':'2018', 
     'Rank': '1',
@@ -45,6 +49,7 @@ insert(dbname = "kenpom.db",
       new_data = new_data)
 
 #Update
+print("Updating data...")
 update(dbname = 'kenpom.db',
        tab = 'kenpom_data',
        col = 'Conference',
@@ -53,6 +58,7 @@ update(dbname = 'kenpom.db',
        cond_val = '2018')
 
 #Delete
+print("Deleting data...")
 delete(dbname = 'kenpom.db',
        tab = 'kenpom_data',
        cond_col = 'Year',
