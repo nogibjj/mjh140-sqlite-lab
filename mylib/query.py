@@ -8,7 +8,7 @@ def query(dbname: str, tab: str, cond = None):
     conn = sqlite3.connect(dbname)
     cursor = conn.cursor()
     columns = 'Year, Rank, Team, Conference, Wins, Losses'
-    if cond == None:
+    if cond is None:
         print(f"Top 5 rows of the {tab} table:")
         query = f"SELECT {columns} FROM {tab} LIMIT 5"
     else:
