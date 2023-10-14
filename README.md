@@ -1,16 +1,20 @@
-## SQLite Lab
+## Mini Project 5: SQLite Lab
 
 [![CI](https://github.com/nogibjj/mjh140-sqlite-lab/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/mjh140-sqlite-lab/actions/workflows/cicd.yml)
 
-### Lab:
 
-* Use an AI Assistant, but use a different one then you used from a previous lab (Anthropic's Claud, Bard, Copilot, CodeWhisperer, Colab AI, etc)
-* ETL-Query:  [E] Extract a dataset from URL, [T] Transform, [L] Load into SQLite Database and [Q] Query
-For the ETL-Query lab:
-* [E] Extract a dataset from a URL like Kaggle or data.gov. JSON or CSV formats tend to work well.
-* [T] Transform the data by cleaning, filtering, enriching, etc to get it ready for analysis.
-* [L] Load the transformed data into a SQLite database table using Python's sqlite3 module.
-* [Q] Write and execute SQL queries on the SQLite database to analyze and retrieve insights from the data.
+### Summary:
+
+This project introduced sql commands using a SQLite database stored directly in this repository. The data chosen for this project was 2002 - 2017 college basketball stats taken from the KenPOMS database. THe following commands were executed in order on this data set:
+
+* `Extract`: Extract a url to a file path
+* `Transform`: Transform and load data into the local SQLite3 database
+* `Query`: Query the database for the top 5 rows of the specified table
+* `Insert`: Insert new new row of data into database
+* `Update`: Update existing data in database
+* `Delete`: Delete data from database
+
+SQL commands were separated into individual `.py` files and saved within the `mylib` folder. The main script, `main.py` executed all SQL commands sequentially. 
 
 #### Tasks:
 
