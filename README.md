@@ -5,40 +5,33 @@
 
 ### Summary:
 
-This project introduced sql commands using a SQLite database stored directly in this repository. The data chosen for this project was 2002 - 2017 college basketball stats taken from the KenPOMS database. THe following commands were executed in order on this data set:
+This project introduced sql commands using a SQLite database stored directly in this repository. The data chosen for this project was 2002 - 2017 college basketball stats taken from the KenPOMS database. The following commands were executed in order on this data set:
 
 * `Extract`: Extract a url to a file path
 * `Transform`: Transform and load data into the local SQLite3 database
 * `Query`: Query the database for the top 5 rows of the specified table
-* `Insert`: Insert new new row of data into database
+* `Insert`: Insert a new row of data into database
 * `Update`: Update existing data in database
 * `Delete`: Delete data from database
 
-SQL commands were separated into individual `.py` files and saved within the `mylib` folder. The main script, `main.py` executed all SQL commands sequentially. 
+SQL commands were separated into individual `.py` files and saved within the `/mylib` folder. The main script, `/src/main.py` executed all SQL commands sequentially. 
 
-#### Tasks:
+#### Results:
 
-* Fork this project and get it to run
-* Make the query more useful and not a giant mess that prints to screen
-* Convert the main.py into a command-line tool that lets you run each step independantly
-* Fork this project and do the same thing for a new dataset you choose
-* Make sure your project passes lint/tests and has a built badge
-* Include an architectural diagram showing how the project works
+After converting the data into a SQLite database, the first 5 rows were printed using the `tabulate` package. Because of the size of the database, only the first 6 columns were printed. The table is shown below.
+![image](https://github.com/nogibjj/mjh140-sqlite-lab/assets/114833075/29fa7122-7dea-44b8-9bab-b4af78418ad8)
 
-#### Reflection Questions
+This database includes data between 2002 and 2017 as shown by this query of data under the condition `Year = '2018'`:
+![image](https://github.com/nogibjj/mjh140-sqlite-lab/assets/114833075/ff0ca09b-7f54-457f-9ae9-edf1f000e9bb)
 
-* What challenges did you face when extracting, transforming, and loading the data? How did you overcome them?
-* What insights or new knowledge did you gain from querying the SQLite database?
-* How can SQLite and SQL help make data analysis more efficient? What are the limitations?
-* What AI assistant did you use and how did it compare to others you've tried? What are its strengths and weaknesses?
-* If you could enhance this lab, what would you add or change? What other data would be interesting to load and query?
+For the purposes of utilizing CRUD operations on a SQLite database, a new row of data from 2018 will be `Inserted`, `Updated`, and `Deleted`. After executing the `Insert` command, the query returned one result where `Year = '2018'`:
+![image](https://github.com/nogibjj/mjh140-sqlite-lab/assets/114833075/04ff5ecd-7caf-493a-913f-99d2a8bba0ce)
 
-##### Challenge Exercises
+The new row of data was successfully inserted, but the Conference column is missing. The `Update` script was executed and the results of the conditional query `Year = '2018'` are shown below. 
+![image](https://github.com/nogibjj/mjh140-sqlite-lab/assets/114833075/797ddf26-9134-49fd-8390-d53a202caffd)
 
-* Add more transformations to the data before loading it into SQLite. Ideas: join with another dataset, aggregate by categories, normalize columns.
-* Write a query to find correlated fields in the data. Print the query results nicely formatted.
-* Create a second table in the SQLite database and write a join query with the two tables.
-* Build a simple Flask web app that runs queries on demand and displays results.
-* Containerize the application using Docker so the database and queries can be portable
+The conference was successfully updated to "BE" (Big East). The final command will delete this new row of data. The conditional query shows there is no longer data where `Year = '2018'`:
+![image](https://github.com/nogibjj/mjh140-sqlite-lab/assets/114833075/5fa6ecac-848c-43e0-8aca-435e1bee54f3)
+
 
 
